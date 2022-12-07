@@ -1,4 +1,4 @@
-# Illuminations small API
+![banner](https://github.com/Hellaweird/IlluminationAPI/blob/master/assets/Project-Illumination.png?raw=true)
 
 ## Maven
 
