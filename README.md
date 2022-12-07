@@ -1,43 +1,43 @@
-# SmoothCoasters API
-
-This library allows Bukkit plugin developers to support [SmoothCoasters](https://www.curseforge.com/minecraft/mc-mods/smoothcoasters).
+# Illuminations small API
 
 ## Maven
 
 SmoothCoastersAPI is available in the TrainCarts Maven repository:
 ```xml
 <repository>
-    <id>mgdev-repo</id>
-    <url>https://ci.mg-dev.eu/plugin/repository/everything/</url>
+    <id>dk-repo</id>
+    <url>https://mvn.daankoster.nl/plugin/repository/everything/</url>
 </repository>
 ```
 
 ```xml
 <dependency>
-    <groupId>me.m56738</groupId>
-    <artifactId>SmoothCoastersAPI</artifactId>
-    <version>1.7</version>
+    <groupId>nl.daankoster</groupId>
+    <artifactId>IlluminationAPI</artifactId>
+    <version>1.0</version>
 </dependency>
 ```
 
-The API has to be [shaded](https://maven.apache.org/plugins/maven-shade-plugin/) into your plugin - it's not a plugin on its own. 
+This API needs shading, its not a plugin of its own. 
+For maven shading please see: https://maven.apache.org/plugins/maven-shade-plugin/
+For gradle shading see: https://imperceptiblethoughts.com/shadow/
 
-## Usage
+## How to use
 
-Create a `new SmoothCoastersAPI(this)` object in `onEnable()` and store it.
+Create a `new IlluminationAPI(this)` object in `onEnable()` and store it.
 Call its `unregister()` method in `onDisable()`.
 
-### Rotation
+### Lights
 
-The camera rotation feature uses quaternions to prevent gimbal lock.
+Currently only philips hue is supported, but that will change in the future. 
+Sending lights to the player is done with the set Lights command.
 
-Use `setRotation(player, x, y, z, w, ticks)` to set the rotation.
+The `lights[]` part of the input variables, is an array wich contains numbers.
+These numbers are:
+[1] Left
+[2] Middle
+[3] Right
 
-| Parameter  | Type   | Description                            |
-| ---------- | ------ | -------------------------------------- |
-| player     | Player | Player                                 |
-| x, y, z, w | float  | Quaternion fields                      |
-| ticks      | byte   | Duration of the interpolation in ticks |
+So to use all the lights use [1,2,3]
 
-A value of 3 is recommended for `ticks`.
-Use `resetRotation(player)` to reset the rotation (usually when the player leaves their vehicle).
+Use `sendLights()` to set the rotation.
