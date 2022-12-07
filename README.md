@@ -2,14 +2,14 @@
 
 ## Maven
 
-SmoothCoastersAPI is available in the TrainCarts Maven repository:
+Repo:
 ```xml
 <repository>
     <id>dk-repo</id>
     <url>https://mvn.daankoster.nl/plugin/repository/everything/</url>
 </repository>
 ```
-
+Dependencies:
 ```xml
 <dependency>
     <groupId>nl.daankoster</groupId>
