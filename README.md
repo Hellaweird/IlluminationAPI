@@ -40,4 +40,4 @@ These numbers are:
 
 So to use all the lights use [1,2,3]
 
-Use `sendLights()` to set the rotation.
+Use `sendLights()` to send lighting changes.
